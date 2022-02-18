@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningDotNetDemo.Console", "LearningDotNetDemo.Console\LearningDotNetDemo.Console.csproj", "{698CD1BF-BAF6-4E8A-8708-7A47CAEF690C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpGettingStarted", "CSharpGettingStarted\CSharpGettingStarted.csproj", "{04B49EAA-764C-4EA1-902E-F960EF9D33DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpGettingStarted", "CSharpGettingStarted\CSharpGettingStarted.csproj", "{04B49EAA-764C-4EA1-902E-F960EF9D33DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpProgramFlow", "CSharpProgramFlow\CSharpProgramFlow.csproj", "{429E8D7B-1ECF-405F-8F1A-907205FF3D95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{04B49EAA-764C-4EA1-902E-F960EF9D33DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04B49EAA-764C-4EA1-902E-F960EF9D33DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04B49EAA-764C-4EA1-902E-F960EF9D33DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{429E8D7B-1ECF-405F-8F1A-907205FF3D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429E8D7B-1ECF-405F-8F1A-907205FF3D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429E8D7B-1ECF-405F-8F1A-907205FF3D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{429E8D7B-1ECF-405F-8F1A-907205FF3D95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
