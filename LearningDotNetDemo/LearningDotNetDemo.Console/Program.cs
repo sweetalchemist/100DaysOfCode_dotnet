@@ -36,4 +36,6 @@ Console.WriteLine(c1.Sum());
 var x = new Person() { YearOfBirth = 1990 }; 
 Console.WriteLine(x.GenerationName.ToString());
 
+Console.WriteLine(DateTime.Now.AddDays(100));
+
 Console.ReadKey();
