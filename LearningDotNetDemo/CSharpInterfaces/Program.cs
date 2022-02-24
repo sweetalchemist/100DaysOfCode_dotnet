@@ -12,6 +12,19 @@ DisplayStuff("Basketball", basketBall);
 Cricket cricket = new Cricket("CSK");
 DisplayStuff("Cricket", cricket);
 
+MusicFactory factory = new MusicFactory();
+IMusicPlayer player = factory.CreatePlayer("cassette");
+player.CurrentlyPlaying = "Bohemian Rhapsody";
+player.Play();
+
+IMusicPlayer player1 = factory.CreatePlayer("streaming");
+player1.CurrentlyPlaying = "Hey Jude";
+player1.Play();
+
+//IMusicPlayer musicPlayer = factory.CreatePlayer("Podcast");
+//musicPlayer.CurrentlyPlaying = "Random Podcast";
+//musicPlayer.Play();
+
 
 void DisplayStuff (string teamType, dynamic team)
 {
