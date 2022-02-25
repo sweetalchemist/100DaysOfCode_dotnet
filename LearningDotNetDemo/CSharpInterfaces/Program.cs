@@ -42,4 +42,20 @@ void DisplayStuff (string teamType, dynamic team)
     }
 }
 
+foreach (var item in GetValues())
+{
+    Console.WriteLine(item);
+}
+
+IEnumerable<int> GetValues()
+{
+    // Used for returning specific values as an iterator in an IEnumerable (List of) T
+    yield return 0;
+    yield return 1;
+    yield return 2;
+    yield return 3;
+    yield return 4;
+    yield return 5;
+}
+
 Console.ReadLine();
