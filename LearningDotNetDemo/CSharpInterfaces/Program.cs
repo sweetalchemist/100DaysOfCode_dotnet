@@ -12,6 +12,19 @@ DisplayStuff("Basketball", basketBall);
 Cricket cricket = new Cricket("CSK");
 DisplayStuff("Cricket", cricket);
 
+MusicFactory factory = new MusicFactory();
+IMusicPlayer player = factory.CreatePlayer("cassette");
+player.CurrentlyPlaying = "Bohemian Rhapsody";
+player.Play();
+
+IMusicPlayer player1 = factory.CreatePlayer("streaming");
+player1.CurrentlyPlaying = "Hey Jude";
+player1.Play();
+
+//IMusicPlayer musicPlayer = factory.CreatePlayer("Podcast");
+//musicPlayer.CurrentlyPlaying = "Random Podcast";
+//musicPlayer.Play();
+
 
 void DisplayStuff (string teamType, dynamic team)
 {
@@ -27,6 +40,22 @@ void DisplayStuff (string teamType, dynamic team)
     {
         Console.WriteLine(ex.ToString());
     }
+}
+
+foreach (var item in GetValues())
+{
+    Console.WriteLine(item);
+}
+
+IEnumerable<int> GetValues()
+{
+    // Used for returning specific values as an iterator in an IEnumerable (List of) T
+    yield return 0;
+    yield return 1;
+    yield return 2;
+    yield return 3;
+    yield return 4;
+    yield return 5;
 }
 
 Console.ReadLine();
