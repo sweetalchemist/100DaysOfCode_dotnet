@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpProgramFlow", "CSharp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpTypes", "CSharpTypes\CSharpTypes.csproj", "{B09F08F9-88BC-4BA8-B129-2E13DD2C0F7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpInterfaces", "CSharpInterfaces\CSharpInterfaces.csproj", "{B4B63578-7D26-43BB-BBD7-BE79AF473BBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpInterfaces", "CSharpInterfaces\CSharpInterfaces.csproj", "{B4B63578-7D26-43BB-BBD7-BE79AF473BBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpGenerics", "CSharpGenerics\CSharpGenerics.csproj", "{6D24D944-A321-4127-9BCF-60D98A873AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B4B63578-7D26-43BB-BBD7-BE79AF473BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4B63578-7D26-43BB-BBD7-BE79AF473BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4B63578-7D26-43BB-BBD7-BE79AF473BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D24D944-A321-4127-9BCF-60D98A873AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D24D944-A321-4127-9BCF-60D98A873AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D24D944-A321-4127-9BCF-60D98A873AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D24D944-A321-4127-9BCF-60D98A873AFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
