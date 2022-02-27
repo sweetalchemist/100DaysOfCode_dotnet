@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using CSharpGenerics.Data;
 using CSharpGenerics.Entities;
 using CSharpGenerics.Repositories;
 
@@ -15,18 +16,30 @@ StackDoubles();
 //    stack.Push("Spiderman");
 //}
 
-var employeeRepository = new GenericRepository<Employee>();
+//var employeeRepository = new GenericRepository<Employee>();
+//employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Adam" });
+//employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Ben" });
+//employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Charlie" });
+//employeeRepository.Save();
+
+//var organizationRepository = new GenericRepository<Organization>();
+//organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "A" });
+//organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "B" });
+//organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "C" });
+//organizationRepository.Save();
+
+var employeeRepository = new SqlRepository<Employee>(new StorageDbContext());
 employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Adam" });
 employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Ben" });
 employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Charlie" });
 employeeRepository.Save();
 
-var organizationRepository = new GenericRepository<Organization>();
+var organizationRepository = new ListRepository<Organization>();
 organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "A" });
 organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "B" });
 organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "C" });
 organizationRepository.Save();
- 
+
 
 void StackDoubles()
 {
