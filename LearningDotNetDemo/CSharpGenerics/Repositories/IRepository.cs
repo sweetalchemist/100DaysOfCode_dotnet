@@ -2,10 +2,17 @@
 
 namespace CSharpGenerics.Repositories
 {
-    public interface IRepository<T> where T : EntityBase
+
+    public interface IReadRepository<out T> where T : IEntity
     {
-        void Add(T item);
+        IEnumerable<T> GetAll();
         T GetById(int id);
+
+    }
+    public interface IRepository<T> : IReadRepository<T> where T : IEntity
+    {
+       
+        void Add(T item);
         void Remove(T item);
         void Save();
     }

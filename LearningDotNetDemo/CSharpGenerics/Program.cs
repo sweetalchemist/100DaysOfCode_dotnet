@@ -41,6 +41,18 @@ organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "
 organizationRepository.Save();
 
 
+WriteAllToConsole(employeeRepository);
+WriteAllToConsole(organizationRepository);
+
+void WriteAllToConsole(IReadRepository<IEntity> repository)
+{
+    var items = repository.GetAll();
+    foreach (var item in items)
+    {
+        Console.WriteLine(item);
+    }
+}
+
 void StackDoubles()
 {
     var stack = new SimpleStack();

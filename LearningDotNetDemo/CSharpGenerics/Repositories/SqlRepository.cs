@@ -29,5 +29,9 @@ namespace CSharpGenerics.Repositories
             _dbContext.SaveChanges();
         }
 
+        public IEnumerable<T> GetAll()
+        {
+            return _dbSet.ToList();
+        }
     }
 }
