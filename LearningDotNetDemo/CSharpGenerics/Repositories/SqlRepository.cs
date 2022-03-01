@@ -8,10 +8,10 @@ namespace CSharpGenerics.Repositories
     public class SqlRepository<T> : IRepository<T> where T : EntityBase
     {
         private readonly DbContext _dbContext;
-        private readonly ItemAdded<T> _itemAddedCallback;
+        private readonly Action<T> _itemAddedCallback;
         private readonly DbSet<T> _dbSet;
 
-        public SqlRepository(DbContext dbContext, ItemAdded<T> itemAdded)
+        public SqlRepository(DbContext dbContext, Action<T> itemAdded)
         {
             this._dbContext = dbContext;
             this._itemAddedCallback = itemAdded;
