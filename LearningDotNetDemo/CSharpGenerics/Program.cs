@@ -28,7 +28,15 @@ StackDoubles();
 //organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "C" });
 //organizationRepository.Save();
 
-var employeeRepository = new SqlRepository<Employee>(new StorageDbContext());
+var itemAdded = new ItemAdded(EmployeeAdded);
+
+void EmployeeAdded(object item)
+{
+    var employee = (Employee)item;
+    Console.WriteLine($"Employee Added => {employee.FirstName}");
+}
+
+var employeeRepository = new SqlRepository<Employee>(new StorageDbContext(), itemAdded);
 AddEmployees(employeeRepository);
 
 var organizationRepository = new ListRepository<Organization>();
@@ -46,7 +54,7 @@ void AddEmployees(IRepository<Employee> employeesRepository)
         new CSharpGenerics.Entities.Employee() { FirstName = "Ben" },
         new CSharpGenerics.Entities.Employee() { FirstName = "Charlie" }
     };
-    employeeRepository.AddBatch( employees);
+    employeeRepository.AddBatch(employees);
 
 }
 void AddOrganizations(IRepository<Organization> organizationRepository)
