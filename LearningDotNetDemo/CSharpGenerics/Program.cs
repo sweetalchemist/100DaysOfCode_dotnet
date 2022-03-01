@@ -46,7 +46,7 @@ void AddEmployees(IRepository<Employee> employeesRepository)
         new CSharpGenerics.Entities.Employee() { FirstName = "Ben" },
         new CSharpGenerics.Entities.Employee() { FirstName = "Charlie" }
     };
-    AddBatch(employeeRepository, employees);
+    employeeRepository.AddBatch( employees);
 
 }
 void AddOrganizations(IRepository<Organization> organizationRepository)
@@ -57,19 +57,10 @@ void AddOrganizations(IRepository<Organization> organizationRepository)
         new Organization() { Name = "B" },
         new Organization() { Name = "C" }
     };
-    AddBatch(organizationRepository, organiations);
+    organizationRepository.AddBatch(organiations);
 }
 
-void AddBatch<T>(IRepository<T> repository, T[] items)
-    where T:IEntity
-{
-    foreach (var item in items)
-    {
-        repository.Add(item);
-    }
-    repository.Save();
 
-}
 
 void WriteAllToConsole(IReadRepository<IEntity> repository)
 {
