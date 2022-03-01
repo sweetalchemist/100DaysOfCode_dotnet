@@ -29,20 +29,47 @@ StackDoubles();
 //organizationRepository.Save();
 
 var employeeRepository = new SqlRepository<Employee>(new StorageDbContext());
-employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Adam" });
-employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Ben" });
-employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Charlie" });
-employeeRepository.Save();
+AddEmployees(employeeRepository);
 
 var organizationRepository = new ListRepository<Organization>();
-organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "A" });
-organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "B" });
-organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "C" });
-organizationRepository.Save();
+AddOrganizations(organizationRepository);
 
 
 WriteAllToConsole(employeeRepository);
 WriteAllToConsole(organizationRepository);
+
+void AddEmployees(IRepository<Employee> employeesRepository)
+{
+    var employees = new[]
+    {
+        new CSharpGenerics.Entities.Employee() { FirstName = "Adam" },
+        new CSharpGenerics.Entities.Employee() { FirstName = "Ben" },
+        new CSharpGenerics.Entities.Employee() { FirstName = "Charlie" }
+    };
+    AddBatch(employeeRepository, employees);
+
+}
+void AddOrganizations(IRepository<Organization> organizationRepository)
+{
+    var organiations = new[]
+    {
+        new Organization() { Name = "A" },
+        new Organization() { Name = "B" },
+        new Organization() { Name = "C" }
+    };
+    AddBatch(organizationRepository, organiations);
+}
+
+void AddBatch<T>(IRepository<T> repository, T[] items)
+    where T:IEntity
+{
+    foreach (var item in items)
+    {
+        repository.Add(item);
+    }
+    repository.Save();
+
+}
 
 void WriteAllToConsole(IReadRepository<IEntity> repository)
 {
