@@ -28,18 +28,55 @@ StackDoubles();
 //organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "C" });
 //organizationRepository.Save();
 
-var employeeRepository = new SqlRepository<Employee>(new StorageDbContext());
-employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Adam" });
-employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Ben" });
-employeeRepository.Add(new CSharpGenerics.Entities.Employee() { FirstName = "Charlie" });
-employeeRepository.Save();
+//var itemAdded = new Action<Employee>(EmployeeAdded);
+
+void EmployeeAdded(Employee item) 
+{
+     Console.WriteLine($"Employee Added => {item.FirstName}");
+}
+
+var employeeRepository = new SqlRepository<Employee>(new StorageDbContext(), EmployeeAdded);
+AddEmployees(employeeRepository);
 
 var organizationRepository = new ListRepository<Organization>();
-organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "A" });
-organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "B" });
-organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "C" });
-organizationRepository.Save();
+AddOrganizations(organizationRepository);
 
+
+WriteAllToConsole(employeeRepository);
+WriteAllToConsole(organizationRepository);
+
+void AddEmployees(IRepository<Employee> employeesRepository)
+{
+    var employees = new[]
+    {
+        new CSharpGenerics.Entities.Employee() { FirstName = "Adam" },
+        new CSharpGenerics.Entities.Employee() { FirstName = "Ben" },
+        new CSharpGenerics.Entities.Employee() { FirstName = "Charlie" }
+    };
+    employeeRepository.AddBatch(employees);
+
+}
+void AddOrganizations(IRepository<Organization> organizationRepository)
+{
+    var organiations = new[]
+    {
+        new Organization() { Name = "A" },
+        new Organization() { Name = "B" },
+        new Organization() { Name = "C" }
+    };
+    organizationRepository.AddBatch(organiations);
+}
+
+
+
+void WriteAllToConsole(IReadRepository<IEntity> repository)
+{
+    var items = repository.GetAll();
+    foreach (var item in items)
+    {
+        Console.WriteLine(item);
+    }
+}
 
 void StackDoubles()
 {

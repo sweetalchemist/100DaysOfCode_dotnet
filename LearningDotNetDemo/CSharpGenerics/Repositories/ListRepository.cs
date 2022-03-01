@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CSharpGenerics.Repositories
 {
-    public class ListRepository<T> where T : EntityBase
+    public class ListRepository<T> : IRepository<T> where T : EntityBase 
     {
         protected readonly List<T> _items = new();
 
@@ -32,5 +32,9 @@ namespace CSharpGenerics.Repositories
             }
         }
 
+        public IEnumerable<T> GetAll()
+        {
+            return _items.ToList();
+        }
     }
 }
