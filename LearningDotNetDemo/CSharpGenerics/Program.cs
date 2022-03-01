@@ -28,12 +28,11 @@ StackDoubles();
 //organizationRepository.Add(new CSharpGenerics.Entities.Organization() { Name = "C" });
 //organizationRepository.Save();
 
-var itemAdded = new ItemAdded(EmployeeAdded);
+var itemAdded = new ItemAdded<Employee>(EmployeeAdded);
 
-void EmployeeAdded(object item)
+void EmployeeAdded(Employee item) 
 {
-    var employee = (Employee)item;
-    Console.WriteLine($"Employee Added => {employee.FirstName}");
+     Console.WriteLine($"Employee Added => {item.FirstName}");
 }
 
 var employeeRepository = new SqlRepository<Employee>(new StorageDbContext(), itemAdded);

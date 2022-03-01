@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 namespace CSharpGenerics.Repositories
 {
 
-    public delegate void ItemAdded(object item);
+    public delegate void ItemAdded<T>(T item);
     public class SqlRepository<T> : IRepository<T> where T : EntityBase
     {
         private readonly DbContext _dbContext;
-        private readonly ItemAdded _itemAddedCallback;
+        private readonly ItemAdded<T> _itemAddedCallback;
         private readonly DbSet<T> _dbSet;
 
-        public SqlRepository(DbContext dbContext, ItemAdded itemAdded)
+        public SqlRepository(DbContext dbContext, ItemAdded<T> itemAdded)
         {
             this._dbContext = dbContext;
             this._itemAddedCallback = itemAdded;
