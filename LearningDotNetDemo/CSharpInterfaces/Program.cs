@@ -42,6 +42,14 @@ void DisplayStuff (string teamType, dynamic team)
     }
 }
 
+string heyJudeSong = "CSharpInterfaces.Library.HeyJudeSong";
+string somethingSong = "CSharpInterfaces.Library.SomethingSong";
+
+IBeatleSong beatleSongHJ = BeatleFactory.CreateBeatleSong(heyJudeSong);
+beatleSongHJ.Play();
+IBeatleSong beatleSongST = BeatleFactory.CreateBeatleSong(somethingSong);
+beatleSongST.Play();
+
 foreach (var item in GetValues())
 {
     Console.WriteLine(item);
